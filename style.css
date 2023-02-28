@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clock {
+  background-color: pink;
+  color: #000;
+  height: 100vh;
+  width: 100%;
+  font-size: 70px;
+  display: grid;
+  place-items: center;
+}
+h1 {
+  background-color: pink;
+  font-family: "Dancing Script", cursive;
+  color: #613a27;
+  letter-spacing: 0.3vmin;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 3.5rem;
+}
