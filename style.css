@@ -2,23 +2,94 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f6d5f7, #fbe9d7);
+  font-family: 'Poppins', sans-serif;
 }
+
 .clock {
-  background-color: pink;
-  color: #000;
-  height: 100vh;
-  width: 100%;
-  font-size: 70px;
-  display: grid;
-  place-items: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  backdrop-filter: blur(15px);
+  height: 85vh;
+  width: 85%;
+  max-width: 500px;
+  margin: 7vh auto;
+  font-size: clamp(3rem, 8vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.05),
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  animation: fadeIn 1s ease;
 }
+
+.clock::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
 h1 {
-  background-color: pink;
-  font-family: "Dancing Script", cursive;
-  color: #613a27;
-  letter-spacing: 0.3vmin;
-  padding: 10px;
+  background-color: transparent;
+  font-family: 'Playfair Display', serif;
+  color: #4a4a4a;
+  letter-spacing: 2px;
+  padding: 25px;
   text-align: center;
   width: 100%;
-  font-size: 3.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 500;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4a4a4a, transparent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .clock {
+    width: 92%;
+    height: 75vh;
+  }
+}
+
+.clock:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.06),
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
 }
